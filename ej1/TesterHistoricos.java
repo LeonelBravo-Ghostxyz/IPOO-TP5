@@ -3,15 +3,20 @@ package ej1;
 public class TesterHistoricos {
     public static void main(String args[]){
         Historicos listaHistoricos = new Historicos(10);
-
+        String[] nombres = new String[]{"Jaime", "Pablo", "Pepe", "Toto", "Fede", "Franco", "Juan", "Mati", "Lucas", "Marcelo"};
         for (int i = 0; i < 9; i++) {
-            Jugador newJ = new Jugador("Jugador "+(i+1));
+            String nick = nombres[i];
+            Jugador newJ = new Jugador(nick);
             newJ.establecerGolesConvertidos(random(0,20));
 
             listaHistoricos.establecerJugador(newJ);
         }   // Note: Establecemos una Lista de historicos (de tamaño 10) con 9 jugadores, a los que se les asignará un valor aleatorio de goles
 
         System.out.println("==== toString() ====");
+        System.out.println(listaHistoricos.toString());
+        System.out.println(" ");
+        System.out.println("==== Ordenar ====");
+        listaHistoricos.ordenar();
         System.out.println(listaHistoricos.toString());
         System.out.println(" ");
         System.out.println("==== Cantidad de Jugadores ====\nEsperado: 10\nObtenido: "+listaHistoricos.cantJugadores());

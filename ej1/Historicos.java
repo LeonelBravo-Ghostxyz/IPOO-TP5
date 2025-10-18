@@ -16,7 +16,7 @@ public class Historicos {
         jugadoresHistoricos[cant] = j;
         cant++;
     }
-    // 
+
     public void ordenar(){
         for (int i = 0; i < cant-1; i++) {
             for (int j = 0; j < cant-i-1; j++) {
@@ -65,26 +65,28 @@ public class Historicos {
             if(jugadoresHistoricos[i].obtenerGolesConvertidos() > g){
                 cont++;
             }
-            if(cont > m)cumple = true;
+            if(cont >= m)cumple = true;
         }
     }
 
         return cumple;
     }
     public Historicos goleadores(int g){
-        int cont = 0;
-        for (int i = 0; i < cantJugadores(); i++) {
-            if(jugadoresHistoricos[i].obtenerGolesConvertidos() > g)
-                cont++;
-        }
-        Historicos newHistoricos = new Historicos(cont);
-        for (int i = 0; i < cont; i++) {
-            if(jugadoresHistoricos[i].obtenerGolesConvertidos() > g)
-                newHistoricos.establecerJugador(jugadoresHistoricos[i]);
-        }
-
-        return newHistoricos;
+    int cont = 0;
+    for (int i = 0; i < cantJugadores(); i++) {
+        if(jugadoresHistoricos[i].obtenerGolesConvertidos() > g)
+            cont++;
     }
+    
+    Historicos newHistoricos = new Historicos(cont);
+    
+    for (int i = 0; i < cantJugadores(); i++) { 
+        if(jugadoresHistoricos[i].obtenerGolesConvertidos() > g)
+            newHistoricos.establecerJugador(jugadoresHistoricos[i]);
+    }
+
+    return newHistoricos;
+}
 
     public String toString(){
         String retorno = "";
