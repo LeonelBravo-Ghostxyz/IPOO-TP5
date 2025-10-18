@@ -16,6 +16,7 @@ public class Historicos {
         jugadoresHistoricos[cant] = j;
         cant++;
     }
+    // 
     public void ordenar(){
         for (int i = 0; i < cant-1; i++) {
             for (int j = 0; j < cant-i-1; j++) {
@@ -54,7 +55,6 @@ public class Historicos {
         }
     }
         if(cont == m)cumple = true;
-
         return cumple;
     }
     public boolean alMenosMMayores(int g,int m){
@@ -86,5 +86,13 @@ public class Historicos {
         return newHistoricos;
     }
 
+    public String toString(){
+        String retorno = "";
 
+        for (int i = 0; i < cant; i++) {
+            retorno = retorno+this.obtenerJugador(i).obtenerNombre()+" - GC: "+this.obtenerJugador(i).obtenerGolesConvertidos()+"\n";
+        }
+
+        return retorno;
+    }
 }
