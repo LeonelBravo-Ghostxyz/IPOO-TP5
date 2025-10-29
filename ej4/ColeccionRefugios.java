@@ -21,12 +21,9 @@ public class ColeccionRefugios {
     public void  eliminarEscasaSupervivencia(){
         for(int i=0;i<cant;i++){
             if(col[i].diasSupervivencia() <= 1){
-                for(int j=i;j<cant-1;j++){
-                    col[j] = col[j+1];
-                }
-                col[cant] = null;
-                cant--;
-                i--;
+                col[i] = col[cant-1];
+                col[cant-1] = null;
+                i--; cant--;
             }
         }
     }
